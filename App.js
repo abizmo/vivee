@@ -10,27 +10,31 @@ export default class App extends React.Component {
 
   async componentDidMount() {
     await Font.loadAsync({
-      "poppins-extralight-italic": require("./assets/fonts/Poppins-ExtraLightItalic.ttf")
+      "extralight-italic": require("./assets/fonts/Poppins-ExtraLightItalic.ttf"),
+      semibold: require("./assets/fonts/Poppins-SemiBold.ttf"),
+      regular: require("./assets/fonts/Poppins-Regular.ttf"),
+      bold: require("./assets/fonts/Poppins-Bold.ttf"),
+      light: require("./assets/fonts/Poppins-Light.ttf"),
+      medium: require("./assets/fonts/Poppins-Medium.ttf")
     });
     this.setState({ fontLoaded: true });
   }
 
   render() {
-    if (!this.state.fontLoaded) {
-      return (
-        <View style={styles.container}>
+    return (
+      <View style={styles.container}>
+        {this.state.fontLoaded ? (
+          <Navigator />
+        ) : (
           <ActivityIndicator size="large" color="#53714B" />
-        </View>
-      );
-    }
-    return <Navigator />;
+        )}
+      </View>
+    );
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center"
+    flex: 1
   }
 });
