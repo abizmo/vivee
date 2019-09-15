@@ -12,35 +12,43 @@ const sizes = {
 const fonts = {
   h1: {
     fontSize: sizes.font * 1.333,
-    lineHeight: sizes.font * 2
+    lineHeight: sizes.font * 2,
+    letterSpacing: sizes.font * 0
   },
   h2: {
     fontSize: sizes.font * 1.178,
-    lineHeight: sizes.font * 1.778
+    lineHeight: sizes.font * 1.778,
+    letterSpacing: sizes.font * 0.25
   },
   header: {
     fontSize: sizes.font * 1.089,
-    lineHeight: sizes.font * 1.622
+    lineHeight: sizes.font * 1.622,
+    letterSpacing: sizes.font * 0.133
   },
   body: {
     fontSize: sizes.font,
-    lineHeight: sizes.font * 1.511
+    lineHeight: sizes.font * 1.511,
+    letterSpacing: sizes.font * 0.25
   },
   caption: {
     fontSize: sizes.font * 0.933,
-    lineHeight: sizes.font * 1.4
+    lineHeight: sizes.font * 1.4,
+    letterSpacing: sizes.font * 0.25
   },
   label: {
     fontSize: sizes.font * 0.889,
-    lineHeight: sizes.font * 1.333
+    lineHeight: sizes.font * 1.333,
+    letterSpacing: sizes.font * 0
   },
   small: {
     fontSize: sizes.font * 0.8,
-    lineHeight: sizes.font * 1.222
+    lineHeight: sizes.font * 1.222,
+    letterSpacing: sizes.font * 0.25
   },
   smaller: {
     fontSize: sizes.font * 0.667,
-    lineHeight: sizes.font * 1.022
+    lineHeight: sizes.font * 1.022,
+    letterSpacing: sizes.font * 0.25
   }
 };
 
@@ -55,4 +63,4 @@ const colors = {
   blue: "#3B5998"
 };
 
-export { colors, sizes, fonts };
+export { colors, sizes, fonts, ratio };
