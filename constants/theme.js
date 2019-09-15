@@ -28,7 +28,7 @@ const fonts = {
   body: {
     fontSize: sizes.font,
     lineHeight: sizes.font * 1.511,
-    letterSpacing: sizes.font * 0.25
+    letterSpacing: sizes.font * 0
   },
   caption: {
     fontSize: sizes.font * 0.933,
