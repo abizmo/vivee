@@ -17,6 +17,7 @@ export default class Typography extends React.Component {
       smaller,
       fontFamily,
       color,
+      onPress,
       style
     } = this.props;
 
@@ -34,7 +35,11 @@ export default class Typography extends React.Component {
       style
     ];
 
-    return <Text style={textStyles}>{this.props.children}</Text>;
+    return (
+      <Text style={textStyles} onPress={onPress}>
+        {this.props.children}
+      </Text>
+    );
   }
 }
 

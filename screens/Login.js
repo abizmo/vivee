@@ -1,6 +1,6 @@
 import React from "react";
 import { Image, StyleSheet, View } from "react-native";
-import { Button, Text } from "../components";
+import { Button, Text, Input } from "../components";
 import { ratio } from "../constants/theme";
 import { isotipo } from "../constants/images";
 
@@ -9,7 +9,13 @@ export default class Login extends React.Component {
     header: null
   };
 
+  state = {
+    email: "",
+    password: ""
+  };
+
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <View
@@ -59,7 +65,11 @@ export default class Login extends React.Component {
             >
               Email
             </Text>
-            <Text>psilva.ericka@gmail.com</Text>
+            <Input
+              type="email"
+              value={this.state.email}
+              onChange={email => this.setState({ email })}
+            />
           </View>
           <View style={{}}>
             <Text
@@ -74,7 +84,11 @@ export default class Login extends React.Component {
             >
               Password
             </Text>
-            <Text>Contraseña</Text>
+            <Input
+              type="password"
+              value={this.state.password}
+              onChange={password => this.setState({ password })}
+            />
           </View>
           <Button
             primary
@@ -91,7 +105,11 @@ export default class Login extends React.Component {
             style={{ textAlign: "center" }}
           >
             Do not have an account?{" "}
-            <Text fontFamily="bold" style={{ textTransform: "uppercase" }}>
+            <Text
+              fontFamily="bold"
+              style={{ textTransform: "uppercase" }}
+              onPress={() => navigate("Register")}
+            >
               Register
             </Text>
           </Text>

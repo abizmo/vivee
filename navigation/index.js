@@ -2,12 +2,13 @@ import React from "react";
 import { createAppContainer } from "react-navigation";
 import { createStackNavigator } from "react-navigation-stack";
 
-import { OnBoardingScreen, LoginScreen } from "../screens";
+import { OnBoardingScreen, LoginScreen, RegisterScreen } from "../screens";
 
 const screens = createStackNavigator(
   {
     OnBoarding: OnBoardingScreen,
-    Login: LoginScreen
+    Login: LoginScreen,
+    Register: RegisterScreen
   },
   {
     initialRouteName: "OnBoarding"
