@@ -1,32 +1,60 @@
 import React from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, View } from "react-native";
+import Text from "./text";
+import { ratio } from "../constants/theme";
 
 export default class Input extends React.Component {
-  state = {
-    isSecure: true
-  };
+  renderLabel() {
+    const { label } = this.props;
+    return (
+      <Text
+        label
+        fontFamily="bold"
+        color="primary"
+        style={{
+          marginBottom: 33 / ratio,
+          textTransform: "uppercase",
+          letterSpacing: 5
+        }}
+      >
+        {label}
+      </Text>
+    );
+  }
+
   renderTextInput(placeholder, keyboardType, secure) {
     const { value, onChange } = this.props;
 
     return (
       <TextInput
-        style={styles.textInput}
-        onChangeText={onChange}
         value={value}
+        onChangeText={onChange}
         placeholder={placeholder}
         keyboardType={keyboardType}
-        secureTextEntry={secure && this.state.isSecure}
+        secureTextEntry={secure}
+        style={styles.textInput}
       />
     );
   }
+
   render() {
-    const { type } = this.props;
+    const { type, secure } = this.props;
 
     switch (type) {
       case "email":
-        return this.renderTextInput("Your email...", "email-address");
+        return (
+          <View style={{ marginBottom: 106 / ratio }}>
+            {this.renderLabel()}
+            {this.renderTextInput("Your email...", "email-address")}
+          </View>
+        );
       case "password":
-        return this.renderTextInput("Your password...", "default", true);
+        return (
+          <View style={{}}>
+            {this.renderLabel()}
+            {this.renderTextInput("Your password...", "default", secure)}
+          </View>
+        );
 
       default:
         return this.renderTextInput("Some info...", "default");

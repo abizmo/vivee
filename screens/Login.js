@@ -11,7 +11,8 @@ export default class Login extends React.Component {
 
   state = {
     email: "",
-    password: ""
+    password: "",
+    isSecure: true
   };
 
   render() {
@@ -52,44 +53,19 @@ export default class Login extends React.Component {
             justifyContent: "center"
           }}
         >
-          <View style={{ marginBottom: 106 / ratio }}>
-            <Text
-              label
-              fontFamily="bold"
-              color="primary"
-              style={{
-                marginBottom: 33 / ratio,
-                textTransform: "uppercase",
-                letterSpacing: 5
-              }}
-            >
-              Email
-            </Text>
-            <Input
-              type="email"
-              value={this.state.email}
-              onChange={email => this.setState({ email })}
-            />
-          </View>
-          <View style={{}}>
-            <Text
-              label
-              fontFamily="bold"
-              color="primary"
-              style={{
-                marginBottom: 33 / ratio,
-                textTransform: "uppercase",
-                letterSpacing: 5
-              }}
-            >
-              Password
-            </Text>
-            <Input
-              type="password"
-              value={this.state.password}
-              onChange={password => this.setState({ password })}
-            />
-          </View>
+          <Input
+            type="email"
+            value={this.state.email}
+            label="Email"
+            onChange={email => this.setState({ email })}
+          />
+          <Input
+            type="password"
+            value={this.state.password}
+            label="Password"
+            onChange={password => this.setState({ password })}
+            secure={this.state.isSecure}
+          />
           <Button
             primary
             large
