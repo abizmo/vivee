@@ -1,8 +1,9 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View, KeyboardAvoidingView } from "react-native";
 import { Button, Text, Input } from "../components";
 import { ratio } from "../constants/theme";
 import { isotipo } from "../constants/images";
+import { icons } from "../constants/icons";
 
 export default class Login extends React.Component {
   static navigationOptions = {
@@ -18,7 +19,11 @@ export default class Login extends React.Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView
+        style={{ flex: 1 }}
+        contentContainerStyle={styles.container}
+        behavior="position"
+      >
         <View
           style={{
             alignItems: "center",
@@ -58,6 +63,7 @@ export default class Login extends React.Component {
             value={this.state.email}
             label="Email"
             onChange={email => this.setState({ email })}
+            icon={icons.email}
           />
           <Input
             type="password"
@@ -65,6 +71,7 @@ export default class Login extends React.Component {
             label="Password"
             onChange={password => this.setState({ password })}
             secure={this.state.isSecure}
+            icon={icons.secure}
           />
           <Button
             primary
@@ -90,7 +97,7 @@ export default class Login extends React.Component {
             </Text>
           </Text>
         </View>
-      </View>
+      </KeyboardAvoidingView>
     );
   }
 }

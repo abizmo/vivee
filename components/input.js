@@ -1,9 +1,32 @@
 import React from "react";
-import { StyleSheet, TextInput, View } from "react-native";
+import { Image, StyleSheet, TextInput, View } from "react-native";
 import Text from "./text";
-import { ratio } from "../constants/theme";
+import { ratio, colors, fonts } from "../constants/theme";
 
 export default class Input extends React.Component {
+  renderIcon(icon) {
+    return (
+      <View
+        style={{
+          width: "100%",
+          position: "relative"
+        }}
+      >
+        <Image
+          style={{
+            height: 18,
+            width: 18,
+            resizeMode: "contain",
+            position: "absolute",
+            right: 0 + 60 / ratio,
+            top: -20 - 37 / ratio
+          }}
+          source={icon}
+        ></Image>
+      </View>
+    );
+  }
+
   renderLabel() {
     const { label } = this.props;
     return (
@@ -38,7 +61,7 @@ export default class Input extends React.Component {
   }
 
   render() {
-    const { type, secure } = this.props;
+    const { type, secure, icon } = this.props;
 
     switch (type) {
       case "email":
@@ -46,6 +69,7 @@ export default class Input extends React.Component {
           <View style={{ marginBottom: 106 / ratio }}>
             {this.renderLabel()}
             {this.renderTextInput("Your email...", "email-address")}
+            {icon && this.renderIcon(icon)}
           </View>
         );
       case "password":
@@ -53,6 +77,7 @@ export default class Input extends React.Component {
           <View style={{}}>
             {this.renderLabel()}
             {this.renderTextInput("Your password...", "default", secure)}
+            {icon && this.renderIcon(icon)}
           </View>
         );
 
@@ -63,5 +88,16 @@ export default class Input extends React.Component {
 }
 
 const styles = StyleSheet.create({
-  textInput: { height: 40, borderColor: "gray", borderWidth: 1 }
+  textInput: {
+    borderTopWidth: 0,
+    borderRightWidth: 0,
+    borderBottomWidth: 1,
+    borderLeftWidth: 0,
+    borderColor: colors.grey,
+    paddingVertical: 30 / ratio,
+    paddingHorizontal: 0,
+    color: colors.grey,
+    fontFamily: "regular",
+    ...fonts.label
+  }
 });
