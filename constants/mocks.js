@@ -1,6 +1,6 @@
 const user = {
-  email: "psilva.ericka@gmail.com",
-  password: "viveeConceptArt"
+  EMAIL: "psilva.ericka@gmail.com",
+  PASSWORD: "viveeConceptArt"
 };
 
 const places = [
