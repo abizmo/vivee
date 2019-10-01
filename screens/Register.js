@@ -1,10 +1,14 @@
 import React from "react";
 import { StyleSheet, View, KeyboardAvoidingView } from "react-native";
-import { Button, Text, Input } from "../components";
+import { Button, Text, Input, Header } from "../components";
 import { ratio } from "../constants/theme";
 import { icons } from "../constants/icons";
 
 export default class Register extends React.Component {
+  static navigationOptions = {
+    headerTitle: <Header>Register</Header>
+  };
+
   state = {
     email: "",
     password: "",
