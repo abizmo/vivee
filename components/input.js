@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     borderBottomWidth: 1,
     borderLeftWidth: 0,
     borderColor: colors.grey,
-    paddingVertical: 30 / ratio,
+    paddingBottom: 30 / ratio,
     paddingHorizontal: 0,
     color: colors.grey,
     fontFamily: "regular",

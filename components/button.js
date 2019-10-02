@@ -1,7 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Image, StyleSheet, Text, TouchableOpacity } from "react-native";
 
 import { theme } from "../constants";
+import { ratio } from "../constants/theme";
 const { colors, fonts } = theme;
 
 export default class Button extends React.Component {
@@ -16,6 +17,7 @@ export default class Button extends React.Component {
       squared,
       shadowed,
       style,
+      icon,
       onPress
     } = this.props;
 
@@ -29,6 +31,7 @@ export default class Button extends React.Component {
       rounded && styles.rounded,
       squared && styles.squared,
       shadowed && styles.shadowed,
+      icon && styles.withIcons,
       style
     ];
     const labelStyles = [
@@ -43,6 +46,7 @@ export default class Button extends React.Component {
         activeOpacity={0.7}
         onPress={onPress}
       >
+        {icon && <Image source={icon} style={styles.buttonIcon} />}
         <Text style={labelStyles}>{this.props.children}</Text>
       </TouchableOpacity>
     );
@@ -74,12 +78,14 @@ const styles = StyleSheet.create({
   facebookLabel: {
     color: colors.white,
     fontFamily: "regular",
-    ...fonts.caption
+    ...fonts.caption,
+    letterSpacing: 1
   },
   googleLabel: {
     color: colors.black,
     fontFamily: "regular",
-    ...fonts.caption
+    ...fonts.caption,
+    letterSpacing: 1
   },
   medium: {
     width: 640 / 3
@@ -95,5 +101,11 @@ const styles = StyleSheet.create({
   },
   shadowed: {
     elevation: 20 / 3
-  }
+  },
+  withIcons: {
+    justifyContent: "flex-start",
+    flexDirection: "row",
+    paddingHorizontal: 73 / ratio
+  },
+  buttonIcon: { marginRight: 120 / ratio }
 });

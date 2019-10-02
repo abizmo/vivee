@@ -18,18 +18,20 @@ export default class Register extends React.Component {
 
   handleRegister() {
     console.log("Register");
+    this.props.navigation.navigate("Home");
   }
 
   handleRegisterWithFacebook() {
     console.log("Register with Facebook");
+    this.props.navigation.navigate("Home");
   }
 
   handleRegisterWithGoogle() {
     console.log("Register with Google");
+    this.props.navigation.navigate("Home");
   }
 
   render() {
-    const { navigate } = this.props.navigation;
     return (
       <KeyboardAvoidingView
         style={{ flex: 1 }}
@@ -72,14 +74,22 @@ export default class Register extends React.Component {
             Register
           </Button>
         </View>
-        <View>
-          <Text>Or</Text>
+        <View style={styles.formOthers}>
+          <Text
+            body
+            fontFamily="regular"
+            color="primary"
+            style={styles.titleOthers}
+          >
+            Or
+          </Text>
           <Button
             facebook
             large
             rounded
             onPress={() => this.handleRegisterWithFacebook()}
-            style={{}}
+            style={styles.firstButton}
+            icon={icons.facebook}
           >
             Register with Facebook
           </Button>
@@ -89,6 +99,7 @@ export default class Register extends React.Component {
             rounded
             onPress={() => this.handleRegisterWithGoogle()}
             style={{}}
+            icon={icons.google}
           >
             Register with Google
           </Button>
@@ -101,21 +112,27 @@ export default class Register extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "flex-start",
     marginHorizontal: 140 / ratio
   },
   header: {
     alignItems: "center",
-    flex: 1,
     justifyContent: "center",
+    marginTop: 72 / ratio,
     marginBottom: 85 / ratio
   },
   title: { textAlign: "center", letterSpacing: 1 },
   form: {
-    flex: 1,
-    justifyContent: "center",
-    marginBottom: 151 / ratio
+    justifyContent: "center"
   },
+  formOthers: {
+    flex: 1,
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 110 / ratio
+  },
+  titleOthers: { textTransform: "uppercase", marginVertical: 50 / ratio },
+  firstButton: { marginBottom: 33 / ratio },
   RegisterButton: { marginBottom: 22 / ratio, marginTop: 155 / ratio },
   registerMsg: { textAlign: "center" },
   registerAction: { textTransform: "uppercase" }

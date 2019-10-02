@@ -1,6 +1,8 @@
 const icons = {
   email: require("../assets/drawable-mdpi/icon-email.png"),
-  secure: require("../assets/drawable-mdpi/icon-secure.png")
+  secure: require("../assets/drawable-mdpi/icon-secure.png"),
+  facebook: require("../assets/drawable-mdpi/icon-facebook.png"),
+  google: require("../assets/drawable-mdpi/icon-google.png")
   //   facebook: require(),
   //   google: require(),
   //   marker: require(),
