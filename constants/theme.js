@@ -33,7 +33,7 @@ const fonts = {
   caption: {
     fontSize: sizes.font * 0.933,
     lineHeight: sizes.font * 1.4,
-    letterSpacing: sizes.font * 0.25
+    letterSpacing: sizes.font * 0.067
   },
   label: {
     fontSize: sizes.font * 0.889,
