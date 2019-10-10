@@ -1,8 +1,9 @@
 import React from "react";
 import { Dimensions, Image, StyleSheet, View } from "react-native";
-import { Header, Map } from "../components";
+import { Header, Map, Text } from "../components";
 import { ratio } from "../constants/theme";
 import { icons } from "../constants/icons";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 
@@ -21,8 +22,8 @@ export default class Home extends React.Component {
     active: "leaf"
   };
 
-  changeActive(event) {
-    console.log(event);
+  changeActive(active) {
+    this.setState({ active });
   }
 
   renderBar() {
@@ -30,18 +31,20 @@ export default class Home extends React.Component {
 
     return (
       <View style={styles.bar}>
-        <Image
-          source={active === "leaf" ? icons.leaf.active : icons.leaf.normal}
-          onPress={e => this.changeActive(e)}
-        />
-        <Image
-          source={
-            active === "notification"
-              ? icons.notification.active
-              : icons.notification.normal
-          }
-          onPress={e => this.changeActive(e)}
-        />
+        <TouchableOpacity onPress={() => this.changeActive("leaf")}>
+          <Image
+            source={active === "leaf" ? icons.leaf.active : icons.leaf.normal}
+          />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={() => this.changeActive("notification")}>
+          <Image
+            source={
+              active === "notification"
+                ? icons.notification.active
+                : icons.notification.normal
+            }
+          />
+        </TouchableOpacity>
         <Image source={icons.profile} />
       </View>
     );

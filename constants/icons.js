@@ -3,7 +3,7 @@ const icons = {
   secure: require("../assets/drawable-mdpi/icon-secure.png"),
   facebook: require("../assets/drawable-mdpi/icon-facebook.png"),
   google: require("../assets/drawable-mdpi/icon-google.png"),
-  //   marker: require(),
+  marker: require("../assets/drawable-mdpi/icon-marker.png"),
   find: require("../assets/drawable-mdpi/icon-location-find.png"),
   close: require("../assets/drawable-mdpi/icon-close.png"),
   notification: {
